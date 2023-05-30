@@ -9,8 +9,14 @@ public class Multiply {
         line.close();
         int total = 0;
         System.out.print(num1 + " * " + num2 + " = ");
-        for(int i = 0; i < num2; i++) {
-            total += num1;
+        if(num2 > 0) { 
+            for(int i = 0; i < num2; i++) {
+                total += num1;
+            }
+        } else if(num2 < 0) {
+            for(int i = 0; i > num2; i--) {
+                total -= num1;
+            }
         }
         System.out.println(total);
     }
