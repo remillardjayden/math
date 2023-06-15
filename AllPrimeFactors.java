@@ -8,17 +8,35 @@ public class AllPrimeFactors {
         line.close();
         boolean flag = true;
         ArrayList<Integer> primes = new ArrayList<Integer>();
-        for(int i = 2; i <= num; i++) {
-            if(num % i == 0) {
-                for(long x = 2L; x < i; x++) {
-                    if(i%x==0) {
-                        flag = false;
+        if(num > 0) {
+            for(int i = 2; i <= num; i++) {
+                if(num % i == 0) {
+                    for(long x = 2L; x < i; x++) {
+                        if(i%x==0) {
+                            flag = false;
+                        }
+                    }
+                    if(flag) {
+                        primes.add(i);
+                    } else {
+                        flag = true;
                     }
                 }
-                if(flag) {
-                    primes.add(i);
-                } else {
-                    flag = true;
+            }
+        } else if(num == 0) { primes.add(0);}
+        else {
+            for(int i = -2; i >= num; i--) {
+                if(num % i == 0) {
+                    for(long x = -2L; x > i; x--) {
+                        if(i%x==0) {
+                            flag = false;
+                        }
+                    }
+                    if(flag) {
+                        primes.add(i);
+                    } else {
+                        flag = true;
+                    }
                 }
             }
         }
