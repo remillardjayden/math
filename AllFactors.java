@@ -7,11 +7,19 @@ public class AllFactors {
         int num = line.nextInt();
         line.close();
         ArrayList<Integer> factors = new ArrayList<Integer>();
-        for(int i = 1; i <= num; i++) {
-            if(num % i == 0) {
-                factors.add(i);
+        if(num > 0) {
+            for(int i = 1; i <= num; i++) {
+                if(num % i == 0) {
+                    factors.add(i);
+                }
             }
-        }
+        } else if(num < 0) {
+            for(int i = -1; i >= num; i--) {
+                if(num % i == 0) {
+                    factors.add(i);
+                }
+            }
+        } else { factors.add(0); }
         System.out.print("[");
         for(int x = 0; x < factors.size()-1; x++) {
             System.out.print(factors.get(x) + ", ");
